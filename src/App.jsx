@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import PostCard from './components/postcard'
 
 function App() {
-
   const initialPosts = [
     {
       id: 1,
@@ -18,21 +16,29 @@ function App() {
       profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
       username: 'bob',
       content: 'Loving this social media app.',
-      isLiked: true,
+      isLiked: false,
     },
     {
       id: 3,
       profileImage: 'https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png',
       username: 'charlie',
       content: 'Just another day...',
-      isLiked: false,
+      isLiked: true,
     },
   ];
 
   return (
-    <>
-      
-    </>
+    <div>
+      {initialPosts.map(post => (
+        <PostCard 
+          key={post.id} 
+          profileImage={post.profileImage} 
+          username={post.username} 
+          content={post.content} 
+          isLiked={post.isLiked} 
+        />
+      ))}
+    </div>
   )
 }
 
